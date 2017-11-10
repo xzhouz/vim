@@ -1,0 +1,14 @@
+{
+  "name": {
+    "type": 0
+  },
+  "lint": {
+    "type": 1,
+    "list": ["eslint\": \"^4.10.0", "jslint\": \"0.11.0"],
+    "defualt": 0
+  },
+  "usebabel": {
+    "type": 2,
+    "default": 1
+  }
+}

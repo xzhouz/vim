@@ -1,6 +1,4 @@
 " 编辑与执行配置文件
-let mapleader = ','
-let maplocalleader = ','
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
@@ -27,5 +25,8 @@ inoremap  <c-k> <c-x><c-k>
 inoremap  <c-f> <c-x><c-f>
 inoremap  <c-l> <c-x><c-l>
 inoremap  <c-o> <c-x><c-o>
-inoremap  <c-u> <c-x><c-u>
-
+inoremap  <c-u> <c-x><c-u> 
+inoremap  <c-e> <c-x><c-e> 
+inoremap  <c-y> <c-x><c-y> 
+" 一键编译
+nnoremap <F12> :make<cr>

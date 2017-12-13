@@ -20,3 +20,8 @@ instanceof
 typeof
 case
 continue
+extends
+setInterval
+constructor
+prototype
+requestAnimationFrame

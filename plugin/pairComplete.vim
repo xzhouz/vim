@@ -7,6 +7,18 @@ for pair in s:pairs
 endfor
 
 inoremap <bs> <c-r>=Delete()<cr>
+inoremap <cr> <c-r>=Enter()<cr>
+
+function! Enter()
+  let curline = getline('.')
+  let index = IsBegin(curline[col('.')-2])
+  if index != -1
+    return "\<cr>\<esc>v<O"
+  else
+    return "\<cr>"
+  endif
+endfunction
+    
 
 function! SkipPair(p)
   if getline('.')[col('.')-1] == a:p
@@ -18,7 +30,7 @@ endfunction
 
 function! Delete()
   let curline = getline('.')
-  if IsBegin(curline[col('.')-2]) 
+  if IsBegin(curline[col('.')-2]) != -1
     if col('.') >= len(curline)
       return "\<esc>mp%x`pxa"
     else
@@ -31,10 +43,12 @@ endfunction
 
 function! IsBegin(char)
   let ret = 0
-  for p in s:pairs
-    if a:char == p[0]
-      let ret = 1
+  let l = len(s:pairs)
+  while (ret < l)
+    if a:char == s:pairs[ret][0]
+      return ret
     endif
-  endfor
-  return ret
+    let ret = ret + 1
+  endwhile
+  return -1
 endfunction

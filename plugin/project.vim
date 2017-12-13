@@ -2,9 +2,11 @@ nnoremap <F10> :call <SID>LoadeProjectTemplat()<cr>
 
 let s:project_root = $HOME . '/.vim/project/'
 let s:var_json = 'var.json'
+let s:projectList = ['webpack', 'rollup', 'react-webpack']
 
 function! <SID>LoadeProjectTemplat ()
-  let pn = input#input("What's the project template's name?")
+  let pn = input#radio("What's the project template's name?", s:projectList)
+  let pn = s:projectList[pn-1]
   call feedkeys("\<CR>")
   let project_path = s:project_root . pn . '/'
   if finddir(project_path) == ''
@@ -19,7 +21,7 @@ function! <SID>LoadeProjectTemplat ()
     return
   endif
 
-  exec "!cp -r " . project_path  . "template/* ."
+  exec "!cp -r " . project_path  . "template/. ."
 
   " The key in the replace will be replaced with the corresponding value
   let replace = {}

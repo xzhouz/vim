@@ -1,1 +1,1 @@
-echom "html"
+nnoremap <F2> :!google-chrome %<cr>

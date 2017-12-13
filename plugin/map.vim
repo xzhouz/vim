@@ -27,6 +27,8 @@ inoremap  <c-l> <c-x><c-l>
 inoremap  <c-o> <c-x><c-o>
 inoremap  <c-u> <c-x><c-u> 
 inoremap  <c-e> <c-x><c-e> 
-inoremap  <c-y> <c-x><c-y> 
 " 一键编译
 nnoremap <F12> :make<cr>
+
+inoremap <F3> <esc>:set paste!<cr>
+nnoremap <F3> :set paste!<cr>

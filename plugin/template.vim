@@ -8,7 +8,7 @@ endif
 function! LoadTemplate()
   exec "0r " . s:tpf
   for [key, value] in items(s:args)
-    exec ':1,$s/{%' . key . '%}/' . value . '/g'
+    exec ':1,$s/{%' . key . '%}/' . value . '/ge'
   endfor
   let pattern = '{%[^%]*%}'
   while 1
@@ -17,7 +17,7 @@ function! LoadTemplate()
       exec "normal! n"
       let key = expand('<cword>')
       let value = input("Input " . key . ":\n")
-      exec ':1,$s/{%' . key . '%}/' . value . '/g'
+      exec ':1,$s/{%' . key . '%}/' . value . '/ge'
     catch '.*'
       break
     endtry
